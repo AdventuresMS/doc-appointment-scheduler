@@ -57,7 +57,8 @@ def index():
     except (FileNotFoundError, json.JSONDecodeError):
         history = []
         
-    return render_template("doc-appointment-scheduler-main",'project.html', result=result, history=history)
+    return render_template('project.html', result=result, history=history)
+
 
 # History route (optional standalone page)
 @app.route('/history')
