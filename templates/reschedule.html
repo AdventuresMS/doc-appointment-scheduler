@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manage Appointments</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f9ff;
+    }
+    h2 {
+      text-align: center;
+      color: #004080;
+    }
+    .appointment-box {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 15px auto;
+      width: 80%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    input,
+    button {
+      margin: 5px;
+      padding: 5px;
+    }
+    .cancel-btn {
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+    }
+  </style>
+  <body>
+    <h2>Appointments</h2>
+    {% for appt in appointments %}
+    <div class="appointment-box">
+      <p><strong>{{ appt.name }}</strong> with {{ appt.doctor }}</p>
+      <p>{{ appt.date }} at {{ appt.time }}</p>
+      <form action="/reschedule" method="POST">
+        <input type="hidden" name="id" value="{{ appt.id }}" />
+        <input type="date" name="date" required />
+        <input type="time" name="time" required />
+        <button type="submit">Reschedule</button>
+      </form>
+      <form action="/cancel" method="POST">
+        <input type="hidden" name="id" value="{{ appt.id }}" />
+        <button type="submit" class="cancel-btn">Cancel</button>
+      </form>
+    </div>
+    {% endfor %}
+  </body>
+</html>

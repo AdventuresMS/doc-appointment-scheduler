@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Disease Detection</title>
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  <style>
+  body {
+  font-family: "Poppins", sans-serif;
+  background:  #f2f6fc;
+  margin: 0;
+  padding: 40px 10px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+h1 {
+  text-align: center;
+  color: #0277bd;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 8px;
+  resize: vertical;
+  font-size: 14px;
+}
+
+button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background-color: #0288d1;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0277bd;
+}
+
+.result {
+  margin-top: 30px;
+  background-color: #e3f2fd;
+  border-left: 6px solid #0288d1;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.result h3 {
+  margin: 0 0 10px;
+  color: #01579b;
+}
+.btn-link {
+  display: inline-block;
+  width: 96%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #0288d1;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-link:hover {
+  background-color: #0277bd;
+}
+
+
+.history {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #fff3e0;
+  border-left: 5px solid #ff9800;
+  border-radius: 5px;
+}
+</style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🩺 Smart Disease Diagnosis</h1>
+      <p class="subtitle">
+        Enter your symptoms and get a basic diagnosis instantly.
+      </p>
+
+      <form method="POST">
+        <label for="symptoms">Symptoms:</label><br />
+        <textarea
+          id="symptoms"
+          name="symptoms"
+          rows="5"
+          placeholder="e.g., fever, cough, headache..."
+          required
+        ></textarea
+        ><br />
+        <button type="submit">Diagnose</button>
+        
+        <a href="{{ url_for('home') }}" class="btn-link">Back to Home</a>
+        
+      </form>
+
+      {% if result %}
+      <div class="result">
+        <h3>🧾 Diagnosis Result:</h3>
+        <p>{{ result }}</p>
+      </div>
+      {% endif %} {% if history %}
+      <div class="history">
+        <h3>📚 Past Diagnosis History:</h3>
+        <ul>
+          {% for item in history %}
+          <li>
+            <strong>{{ item.timestamp }}</strong><br />
+            <strong>Symptoms:</strong> {{ item.symptoms }}<br />
+            <strong>Diagnosis:</strong> {{ item.result }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

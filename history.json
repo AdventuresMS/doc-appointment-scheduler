@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp": "2025-06-11 23:34:20",
+    "symptoms": "fever, cough\r\n",
+    "result": "Flu - Take antiviral medications if prescribed; rest and stay hydrated."
+  },
+  {
+    "timestamp": "2025-06-11 23:38:30",
+    "symptoms": "fever, chill",
+    "result": "No matching disease found. Please check your symptoms."
+  },
+  {
+    "timestamp": "2025-06-12 13:45:53",
+    "symptoms": "fever, abdominal pain",
+    "result": "Typhoid - Requires antibiotic treatment; maintain proper hygiene."
+  },
+  {
+    "timestamp": "2025-06-12 13:50:07",
+    "symptoms": "fever, abdominal pain",
+    "result": "Typhoid - Requires antibiotic treatment; maintain proper hygiene."
+  },
+  {
+    "timestamp": "2025-06-12 23:15:43",
+    "symptoms": "fever , cough",
+    "result": "Flu - Take antiviral medications if prescribed; rest and stay hydrated."
+  },
+  {
+    "timestamp": "2025-06-12 23:30:00",
+    "symptoms": "fever, cough",
+    "result": "Flu - Take antiviral medications if prescribed; rest and stay hydrated."
+  },
+  {
+    "timestamp": "2025-06-13 09:57:39",
+    "symptoms": "fever,chills,sweating",
+    "result": "Malaria - Consult a doctor for antimalarial treatment; avoid mosquito bites."
+  }
+]

@@ -1,0 +1,7 @@
+/* style.css */
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+.container {
+  max-width: 500px;
+}

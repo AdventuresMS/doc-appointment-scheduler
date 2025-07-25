@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Doctor Appointment Scheduler</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+        background: #f2f6fc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Welcome Screen */
+      #welcome {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(87, 154, 226);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: all 1s ease;
+        animation: zoomIn 1.2s ease forwards;
+      }
+
+      #welcome.fade-out {
+        opacity: 0;
+        transform: scale(0.8);
+        visibility: hidden;
+      }
+
+      #welcome h1 {
+        font-size: 32px;
+        font-weight: bold;
+        animation: floatText 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes zoomIn {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes floatText {
+        0% {
+          transform: translateY(0px);
+        }
+        100% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Main Container */
+      .container {
+        text-align: center;
+        background: white;
+        padding: 50px 40px;
+        border-radius: 16px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+        max-width: 480px;
+        width: 100%;
+        z-index: 1;
+        display: none;
+      }
+
+      h1 {
+        color: rgb(240, 242, 245);
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        color: #4a5568;
+        margin-bottom: 30px;
+        font-size: 16px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #2b6cb0;
+        color: white;
+        padding: 14px 24px;
+        font-weight: 600;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        text-align: center;
+      }
+
+      .btn:hover {
+        background-color: #1e4e87;
+      }
+
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        width: 100%;
+      }
+
+      .footer {
+        margin-top: 25px;
+        font-size: 13px;
+        color: #718096;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Welcome Screen -->
+    <div id="welcome">
+      <h1>Welcome to CUREDESK by EasyAppointmentBot</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="main-content">
+      <h2>Doctor Appointment Scheduler</h2>
+      <p>Book your appointment easily in just a few clicks</p>
+
+      <div class="button-group">
+        <a href="book" class="btn">Book Appointment</a>
+        <a href="/manage" class="btn">Manage Appointments</a>
+
+        <a href="/project" class="btn">Temporary Diagnosis</a>
+        <a href="slider" class="btn">Sweat & Shine</a>
+      </div>
+
+      <div class="footer">Powered by EasyAppointmentBot</div>
+    </div>
+
+    <script>
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          const welcome = document.getElementById("welcome");
+          const main = document.getElementById("main-content");
+          welcome.classList.add("fade-out");
+          setTimeout(() => {
+            welcome.style.display = "none";
+            main.style.display = "block";
+          }, 1000);
+        }, 2500); // Show welcome for  seconds
+      });
+    </script>
+  </body>
+</html>

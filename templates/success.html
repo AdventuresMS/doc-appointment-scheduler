@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Appointment Confirmed</title>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f5f9ff;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .success-box {
+        background: white;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .success-box h1 {
+        color: #28a745;
+        margin-bottom: 10px;
+      }
+      .success-box p {
+        margin: 10px 0;
+        font-size: 16px;
+      }
+      .home-link {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background 0.3s;
+      }
+      .home-link:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success-box">
+      <h1>✅ Appointment Confirmed</h1>
+      <p><strong>Name:</strong> {{ name }}</p>
+      <p><strong>Date:</strong> {{ date }}</p>
+      <p><strong>Time:</strong> {{ time }}</p>
+      <p>You will receive a confirmation email shortly.</p>
+      <a href="{{ url_for('home') }}" class="home-link">Back to Home</a>
+    </div>
+  </body>
+</html>
